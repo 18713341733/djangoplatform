@@ -1,0 +1,8 @@
+DB:
+  host: 10.150.31.85
+  username: cfbtest
+  password: CFB@1234crm
+  database: licai
+  databasetype: mysql
+  port: 3306
+  note: CRM、licai库

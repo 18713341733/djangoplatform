@@ -1,0 +1,8 @@
+DB:
+  host: 17.16.90.14
+  username: kytz_dev
+  password: 2Hxj2H0L
+  database: kytz_dev
+  databasetype: mysql
+  port: 3306
+  note: 坤元基金、PHP库，kytz_dev
