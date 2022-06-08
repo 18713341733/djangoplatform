@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除注册信息</title>
+    <script  src="http://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+</head>
+<body bgcolor="#f5f5dc">
+<h1 style="text-align: center;">删除注册信息</h1>
+
+<form action="/inputIphoneNumber2/" method="post" autocomplete=”off”>
+    <!--  文本域-->
+<div style="text-align: center;margin-top: 30px">
+  <p>
+    <textarea name="textarea" cols="50" rows="10">输入多个手机号，逗号隔开</textarea>
+  </p>
+    <p>
+     <input type="submit">
+    </p>
+
+
+</div>
+</form>
+
+
+<script>
+    function delete_iphone_numbers() {
+        //获取输入的参数
+        var iphone_numbers= document.getElementById('iphone_numbers').value;
+        console.log(iphone_numbers);
+        //发送请求
+        $.get('/inputIphoneNumber/',
+                {
+                    'iphone_numbers':iphone_numbers
+                },
+                function (ret) {
+
+                    if(ret=='ok'){
+                        alert('删除成功！')
+                    }else {
+                        alert('删除失败！')
+                    }
+
+        });
+        //展示返回值
+
+    }
+</script>
+</body>
+</html>
