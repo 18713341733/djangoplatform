@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^deleteSql/$',views.deleteSql),
     url(r'^inputIphoneNumber/$',views.inputIphoneNumber),
     url(r'^deleteForm/$',views.deleteForm),
-    url(r'^inputIphoneNumber2/$',views.inputIphoneNumber2),
+    # url(r'^inputIphoneNumber2/$',views.inputIphoneNumber2),
 
 
 ]
