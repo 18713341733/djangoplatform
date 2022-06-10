@@ -1,13 +1,14 @@
 import pymysql
+from pydantic import BaseModel
 
 from deleteSqlApp.utils.YmlUtil import YmlUtil
 from deleteSqlApp.model.ExecuteResult import ExecuteResult
 
 
-class DeleteInfo:
+class DBConnectInfo():
 
     @staticmethod
-    def connectDb(filePath):
+    def connectDb(filePath: str):
         licai_db = YmlUtil.readDbYml(filePath)
         # 打开数据库连接
         conn = pymysql.connect(
@@ -21,8 +22,8 @@ class DeleteInfo:
         return conn
 
     @staticmethod
-    def delete_licai(filePath):
-        licai_conn = DeleteInfo.connectDb(filePath)
+    def delete_licai(filePath: str) -> ExecuteResult:
+        licai_conn = DBConnectInfo.connectDb(filePath)
 
         try:
             # 使用cursor()方法获取操作游标
@@ -54,8 +55,8 @@ class DeleteInfo:
         return result
 
     @staticmethod
-    def delete_kytz_dev(filePath):
-        kytz_dev_conn = DeleteInfo.connectDb(filePath)
+    def delete_kytz_dev(filePath: str) -> ExecuteResult:
+        kytz_dev_conn = DBConnectInfo.connectDb(filePath)
         try:
             # 使用cursor()方法获取操作游标
             cursor = kytz_dev_conn.cursor()
@@ -86,8 +87,8 @@ class DeleteInfo:
         return result
 
     @staticmethod
-    def delete_kyf_activity(filePath):
-        kyf_activity_conn = DeleteInfo.connectDb(filePath)
+    def delete_kyf_activity(filePath: str) -> ExecuteResult:
+        kyf_activity_conn = DBConnectInfo.connectDb(filePath)
         try:
             # 使用cursor()方法获取操作游标
             cursor = kyf_activity_conn.cursor()

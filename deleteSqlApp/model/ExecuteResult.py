@@ -1,4 +1,5 @@
-class ExecuteResult:
+from pydantic import BaseModel
+class ExecuteResult():
     def __init__(self,result=None,message=None):
-        self.result = result
-        self.message = message
+        self.result: str = result
+        self.message: str = message

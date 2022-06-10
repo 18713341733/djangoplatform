@@ -13,7 +13,8 @@ import re
 import pymysql
 import os
 from deleteSqlApp.utils.YmlUtil import YmlUtil
-from deleteSqlApp.utils.DeleteInfo import DeleteInfo
+from deleteSqlApp.utils.DBConnectInfo import DBConnectInfo
+from deleteSqlApp.utils.mytest import test_my_connet
 
 
 def home(request):
@@ -29,6 +30,7 @@ def deleteForm(request):
 def inputIphoneNumber(request):
     # 前端输入数据
     phone_numbers = request.POST['textarea']
+    test_my_connet()
 
     # TODO： 输入手机号码的校验
 
@@ -39,7 +41,7 @@ def inputIphoneNumber(request):
     # 读取CRM,licai数据配置信息
     licai_path = os.path.abspath('.')+"/deleteSqlApp/conf/dbinfo/"+"licai.yml"
     # path = "/Users/zhaohui/PycharmProjects/KunYuan/KunYuanJiJin/deleteSqlApp/conf/dbinfo/licai.yml"
-    result =DeleteInfo.delete_licai(licai_path)
+    result =DBConnectInfo.delete_licai(licai_path)
     print(result.message)
     print(phone_numbers)
     if(phone_numbers==""):

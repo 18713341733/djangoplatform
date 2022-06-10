@@ -1,12 +1,13 @@
 import os
 import yaml
 from deleteSqlApp.model.DbInfo import *
-class YmlUtil:
+from pydantic import BaseModel
+class YmlUtil():
 
     # path = os.path.abspath()
 
     @staticmethod
-    def readDbYml(filePath):
+    def readDbYml(filePath:str) -> DbInfo:
         f = open(filePath, 'r', encoding='utf-8')
         cont = f.read()
         x = yaml.load(cont,Loader=yaml.FullLoader)
@@ -28,7 +29,7 @@ class YmlUtil:
 
 
 if __name__ == '__main__':
-    db=YmlUtil.readDbYml("KD_SALE_DX.yml")
+    db=YmlUtil.readDbYml("/Users/zhaohui/PycharmProjects/KunYuan/KunYuanJiJin/deleteSqlApp/conf/dbinfo/KD_SALE_DX.yml")
     print("端口号："+str(db.port))
     print(db.port)
 
