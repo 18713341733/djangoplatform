@@ -30,7 +30,12 @@ def deleteForm(request):
 
 def inputIphoneNumber(request):
     # 前端输入数据
-    phone_numbers = request.POST['textarea']
+
+    try:
+        phone_numbers = request.POST['textarea']
+    except:
+        return render(request, "deleteSql.html")
+
     print("phone_numbers:"+phone_numbers)
 
     # TODO： 输入手机号码的校验
