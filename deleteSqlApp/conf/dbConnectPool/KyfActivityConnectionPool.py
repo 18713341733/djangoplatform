@@ -65,8 +65,3 @@ class KyfActivityConnectionPool(object):
         conn = self.__getconn()
         cursor = conn.cursor()
         return cursor, conn
-#
-#
-# # 获取连接池,实例化
-# def get_kyf_activity_connection() -> KyfActivityConnectionPool:
-#     return KyfActivityConnectionPool()

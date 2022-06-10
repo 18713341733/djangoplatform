@@ -2,8 +2,7 @@
 # @Author: 喵酱
 # @time: 2022 - 06 -09
 # @File: LiCaiHandleSql.py
-from deleteSqlApp.conf.dbConnectPool.KytzDevConnectionPool import get_kytz_dev_connection
-from deleteSqlApp.conf.dbConnectPool.LiCailConnectionPool import get_licai_connection
+from deleteSqlApp.conf.dbConnectPool.GetKytzDevConnection import GetKytzDevConnection
 from deleteSqlApp.model.DBPoolSet import DBPoolSet
 from deleteSqlApp.model.DbInfo import DbInfo
 from deleteSqlApp.model.DBPoolSet import DBPoolSet
@@ -18,16 +17,8 @@ import os
 class KytzDevHandleSql:
     __instance = None
 
-    # 构造器，从数据池中获取连接
-    # def __init__(self):
-    #     dbInfo=YmlUtil.readDbYml(
-    #         "/Users/zhaohui/PycharmProjects/KunYuan/KunYuanJiJin/deleteSqlApp/conf/dbinfo/kyf_activity.yml")
-    #
-    #     dbPoolSet = DBPoolSet()
-    #     self.db = get_my_connection(dbInfo,dbPoolSet)
-
     def __init__(self):
-        self.db = get_kytz_dev_connection()
+        self.db = GetKytzDevConnection().conn
 
     # 单例模式
     def __new__(cls, *args, **kwargs):

@@ -66,7 +66,3 @@ class LiCaiConnectionPool(object):
         cursor = conn.cursor()
         return cursor, conn
 
-
-# # 获取连接池,实例化
-# def get_licai_connection() -> LiCaiConnectionPool:
-#     return LiCaiConnectionPool()

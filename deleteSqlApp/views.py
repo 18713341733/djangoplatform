@@ -13,8 +13,9 @@ import re
 import pymysql
 import os
 from deleteSqlApp.utils.YmlUtil import YmlUtil
+from deleteSqlApp.utils.CheckPhoneNumber import CheckPhoneNumber
 from deleteSqlApp.utils.DBConnectInfo import DBConnectInfo
-from deleteSqlApp.utils.mytest import test_my_connet
+
 
 
 def home(request):
@@ -30,36 +31,27 @@ def deleteForm(request):
 def inputIphoneNumber(request):
     # 前端输入数据
     phone_numbers = request.POST['textarea']
-    test_my_connet()
+    print("phone_numbers:"+phone_numbers)
 
     # TODO： 输入手机号码的校验
-
-
-
-
-    # 读取数据库配置
-    # 读取CRM,licai数据配置信息
-    licai_path = os.path.abspath('.')+"/deleteSqlApp/conf/dbinfo/"+"licai.yml"
-    # path = "/Users/zhaohui/PycharmProjects/KunYuan/KunYuanJiJin/deleteSqlApp/conf/dbinfo/licai.yml"
-    result =DBConnectInfo.delete_licai(licai_path)
-    print(result.message)
-    print(phone_numbers)
-    if(phone_numbers==""):
-        return render(request, "deleteSql.html", context={
-            "content": "输入不能为空",
-        })
-
-    if int(phone_numbers) > 5:
-        return render(request, "deleteSql.html", context={
-            "result": "成功",
-            "content": phone_numbers,
-        })
-    else:
+    result,messages = CheckPhoneNumber.check_phone_number(phone_numbers)
+    print("result:"+result)
+    if result == "False":
         return render(request, "deleteSql.html", context={
             "result": "失败",
-            "reason": result.message,
             "content": phone_numbers,
         })
+    liststr = "".join(messages)
+    messages = "成功处理以下数据:"+liststr
+    return render(request, "deleteSql.html", context={
+        "result": "成功",
+        "content": phone_numbers,
+        "mymessages":messages,
+    })
+
+
+
+
 
 
 

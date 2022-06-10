@@ -65,8 +65,3 @@ class KytzDevConnectionPool(object):
         conn = self.__getconn()
         cursor = conn.cursor()
         return cursor, conn
-
-
-# 获取连接池,实例化
-def get_kytz_dev_connection() -> KytzDevConnectionPool:
-    return KytzDevConnectionPool()
