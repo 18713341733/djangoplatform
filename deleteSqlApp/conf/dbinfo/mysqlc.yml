@@ -1,0 +1,8 @@
+DB:
+  host: 22.22.22.22
+  username: zhanghao
+  password: mima
+  database: mysqla
+  databasetype: mysql
+  port: 3306
+  note: mysql数据库C

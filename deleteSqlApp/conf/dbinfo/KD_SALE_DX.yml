@@ -1,8 +1,0 @@
-DB:
-  host: 17.16.90.80
-  username: kd_sale_dx_r
-  password: 2
-  database: KD_SALE_DX
-  databasetype: ORCLDG
-  port: 1521
-  note: 金正库KD_SALE_DX

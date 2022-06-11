@@ -8,25 +8,20 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render_to_response
-from django.contrib import messages
-import re
-import pymysql
-import os
-from deleteSqlApp.utils.YmlUtil import YmlUtil
 from deleteSqlApp.utils.CheckPhoneNumber import CheckPhoneNumber
-from deleteSqlApp.utils.DBConnectInfo import DBConnectInfo
+
 
 
 
 def home(request):
-    return render(request,"KunYuanHome.html")
+    return render(request,"Home.html")
 
 
 def deleteSql(request):
     return render(request,"deleteSql.html")
 
 def deleteForm(request):
-    return render(request,"deleteSql2.html")
+    return render(request,"deleteSql.html")
 
 def inputIphoneNumber(request):
     # 前端输入数据
@@ -68,8 +63,4 @@ def inputIphoneNumber(request):
 @csrf_exempt
 def page_not_found(request):
     return render_to_response('404.html')
-
-if __name__ == '__main__':
-    path = os.path.abspath('.') + "/conf/dbinfo/" + "licai.yml"
-    print(path)
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/KunYuanJiJin.iml" filepath="$PROJECT_DIR$/.idea/KunYuanJiJin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/djangoplatform.iml" filepath="$PROJECT_DIR$/.idea/djangoplatform.iml" />
     </modules>
   </component>
 </project>

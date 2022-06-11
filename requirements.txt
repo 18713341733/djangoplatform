@@ -1,0 +1,8 @@
+cx_Oracle==8.3.0
+DBUtils==3.0.2
+Django==2.1.10
+pydantic==1.9.1
+PyMySQL==1.0.2
+PyYAML==6.0
+simplejson==3.17.6
+

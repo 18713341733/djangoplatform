@@ -1,8 +1,0 @@
-DB:
-  host: 10.150.30.115
-  username: ls_yanfa
-  password: ls_yanfa
-  database: kyf_activity
-  databasetype: mysql
-  port: 3306
-  note: 坤元基金、活动库kyf_activity
