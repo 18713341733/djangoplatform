@@ -1,7 +1,6 @@
 from dbutils.pooled_db import PooledDB
 from deleteSqlApp.model.DBPoolSet import DBPoolSet
 from deleteSqlApp.model.DbInfo import DbInfo
-import random
 
 from deleteSqlApp.utils.YmlUtil import YmlUtil
 
